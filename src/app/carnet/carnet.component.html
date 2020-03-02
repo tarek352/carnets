@@ -1,0 +1,53 @@
+<div class="d-flex align-items-center justify-content-center card-title text-white">My Address Book</div>
+<div class="d-flex align-items-center justify-content-center h-70 w-70" *ngIf="carnet">
+    <div class="card">
+        <div class="card-header bg-danger"> </div>
+        <div class="card-body">
+            <div class="form-inline my-2 my-lg-0">
+                <div class="input-group w-100">
+                                          <!-- search bar-->
+                    <input class="form-control mr-sm-2" type="text" [(ngModel)]="searchProfile"  autocomplete="off"
+                        placeholder="Search" aria-label="Search">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex align-items-center justify-content-center card-title text-danger">A B C D E F G H
+                        I J K L M N O P Q R S T W Y Z </div>
+                </div>
+            </div>
+                                             <!--carnet-->
+            <div class="row">
+                <div class="col-md-4" id="profil" *ngFor="let prof of Profils | search: searchProfile " (click)="getDetails(prof)">
+                    <div class="card" style="width: 15rem;">
+                        <div class="card-body">
+                            <div class="col-md-12"><img src="../assets/icons/profile.png" class="img-circle"
+                                    alt="Responsive image">
+                                <div class="col-md-12"> <span>{{prof.name}} <br> {{prof.number}}</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                                       <!--Détails-->
+<div class="details" *ngIf="showDetails">
+    <div class="d-flex align-items-center justify-content-center h-100 w-100">
+        <div class="card">
+            <div class="card-header bg-danger"> </div>
+            <div class="card-body" style="width: 20rem;">
+                <div class="col-md-12"><img src="../assets/icons/profile.png" class="img-circle" alt="Responsive image">
+                    <div class="col-md-12"> <span>{{profile.name}} <br> {{profile.number}}</span></div>
+                </div>
+                <div class="icons">
+                    <img class="image" src="../../assets/icons/skype.png" />
+                    <img class="image" src="../../assets/icons/phone.png" />
+                    <img class="image" src="../../assets/icons/mail.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
